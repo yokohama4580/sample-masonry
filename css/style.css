@@ -1,0 +1,182 @@
+@charset 'UTF-8';
+
+/* --------------------------------
+ * base
+ * -------------------------------- */
+html
+{
+    font-size: 62.5%;
+}
+body
+{
+    font-family: 'Hiragino Kaku Gothic ProN',  Meiryo,  sans-serif;
+    font-size: 1.2rem;
+
+    padding: 30px;
+
+    color: #333;
+    background-color: #f6f7fb;
+}
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box;
+}
+a:link,
+a:visited,
+a:hover,
+a:active
+{
+    text-decoration: none;
+
+    color: #7c5119;
+}
+.item
+{
+    width: 180px;
+    margin-bottom: 4px;
+    padding: 8px;
+
+    border-bottom: 3px solid;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.item .image
+{
+    /*imgはインライン要素なのでblock指定*/
+    display: block;
+
+    width: 100%;
+    /*height: 109px;*/
+}
+.item .category
+{
+    font-family: 'Trebuchet MS', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+    margin: 15px 9px 10px;
+
+    letter-spacing: 1px;
+
+    color: #aaa;
+}
+.item .category::before
+{
+    display: inline-block;
+
+    width: 19px;
+    height: 19px;
+    margin-right: 5px;
+    /*::before疑似要素を表示させるためにcontent指定が必要*/
+
+    content: '';
+    vertical-align: -5px;
+
+    border: 2px solid;
+    border-radius: 50%;
+}
+.item .description
+{
+  margin: 10px;
+  line-height: 1.5;
+}
+.item > a
+{
+  display: block;
+  /*ネガティブマージンで内側の要素(a要素)を
+  外側の要素（section）と同じ大きさに広げる*/
+  margin: -8px -8px -11px;
+  /*ネガティブマージンをpaddingで相殺して見た目を元に戻す
+  （hoverが効く範囲はネガティブマージンで広げた範囲のまま）*/
+  padding: 8px 8px 11px;
+  /*角の丸みも親要素（section）と同じに重ねる*/
+  border-radius: inherit;
+  color: #777;
+  transition: all 0.3s;
+}
+.item > a:hover
+{
+  box-shadow: 0 0 6px -1px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+}
+.item-maindish,
+.item-maindish .category::before{
+  border-color: #FFC0CB;
+}
+.item-appetizer,
+.item-appetizer .category::before{
+  border-color: #76C047;
+}
+.item-column,
+.item-column .category::before{
+  border-color: #FFF100;
+}
+.item-breaktime,
+.item-breaktime .category::before{
+  border-color: #C1EFFF;
+}
+.item-m
+{
+  width: 364px;
+}
+.item-m .image
+{
+  /*height: 146px;*/
+}
+.item-l
+{
+  width: 732px;
+}
+.item-l .image
+{
+  /*height: 463px;*/
+}
+.header
+{
+  padding: 25px;
+  border-bottom: none;
+  text-align: center;
+}
+.logo
+{
+  width: 136px;
+  height: 136px;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+.logo:hover
+{
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.nav
+{
+  margin: 35px auto 10px;
+}
+.nav-item
+{
+  margin-top: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.nav-item a
+{
+  /*blockにすると、a要素の幅がliの範囲まで広がるが、
+  inline-blockだと文字部分だけがa要素になる*/
+  display: inline-block;
+}
+.nav-item a::after
+{
+  content: '';
+  display: block;
+  /*hoverするまで見せないようにwidthを0にしておく*/
+  width: 0;
+  margin: 6px auto 0;
+  border-bottom: 1px solid #7C5119;
+  transition: width 0.3s ease-in-out;
+}
+.nav-item a:hover::after{
+  width: 100%;
+}
